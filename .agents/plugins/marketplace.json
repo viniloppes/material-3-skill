@@ -1,0 +1,20 @@
+{
+  "name": "material-3-skill",
+  "interface": {
+    "displayName": "Material Design 3 Skill"
+  },
+  "plugins": [
+    {
+      "name": "material-3",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    }
+  ]
+}

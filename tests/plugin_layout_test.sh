@@ -47,6 +47,9 @@ expect_contains "skills/material-3/.claude-plugin/plugin.json" '"repository": "h
 expect_file "skills/material-3/SKILL.md"
 expect_dir "skills/material-3/references"
 expect_file "skills/material-3/references/color-system.md"
+expect_file ".agents/plugins/marketplace.json"
+expect_file ".codex-plugin/plugin.json"
+expect_contains ".codex-plugin/plugin.json" '"skills": "./skills/"'
 expect_absent "SKILL.md"
 expect_absent "references"
 

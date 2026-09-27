@@ -124,6 +124,18 @@ npx --yes skills add hamen/material-3-skill --skill material-3 -y
 
 This is the preferred path for Codex, Claude Code, Cursor, and multi-agent setups because the repo follows the direct `skills/<name>/SKILL.md` layout.
 
+### Codex plugin install
+
+Add the `codex-module` branch as a Codex plugin marketplace:
+
+```bash
+codex plugin marketplace add viniloppes/material-3-skill --ref codex-module
+```
+
+Restart the ChatGPT desktop app, open the Plugins Directory, select **Material Design 3 Skill**, and install **material-3**. The repository's `.agents/plugins/marketplace.json` points to the root Codex plugin, whose `.codex-plugin/plugin.json` loads `skills/material-3`.
+
+In Codex, invoke the installed skill with `$material-3` followed by your request.
+
 ### Claude Code plugin install
 
 Add this repository as a plugin marketplace, then install the `material-3` plugin from it.
@@ -192,6 +204,8 @@ The audit scores your app across 10 categories (color tokens, typography, shape,
 
 | File | Description |
 |------|-------------|
+| `.agents/plugins/marketplace.json` | Codex marketplace entry for the repository's plugin |
+| `.codex-plugin/plugin.json` | Codex plugin manifest that loads the existing `skills/` directory |
 | `.claude-plugin/marketplace.json` | Claude Code marketplace manifest, points at the `material-3` plugin subdir |
 | `skills/material-3/.claude-plugin/plugin.json` | Claude Code plugin manifest for the `material-3` skill |
 | `skills/material-3/SKILL.md` | Main skill: philosophy, decision trees, token overview, component table, Compose-first notes, limited web patterns, audit procedure |

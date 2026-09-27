@@ -1,0 +1,28 @@
+{
+  "name": "material-3",
+  "version": "1.1.1",
+  "description": "Material Design 3 (Material You) implementation skill for Jetpack Compose, Flutter, and web.",
+  "author": {
+    "name": "Ivan Morgillo"
+  },
+  "repository": "https://github.com/viniloppes/material-3-skill",
+  "license": "MIT",
+  "keywords": [
+    "material-design",
+    "material3",
+    "jetpack-compose",
+    "flutter",
+    "android",
+    "ui"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Material Design 3",
+    "shortDescription": "Build and review Material Design 3 interfaces.",
+    "longDescription": "Create Material Design 3 components, themes, and layouts, or audit an existing interface. Focuses on Jetpack Compose with Flutter and limited web guidance.",
+    "developerName": "Ivan Morgillo",
+    "category": "Development",
+    "capabilities": ["Design Material 3 interfaces", "Audit Material 3 compliance"],
+    "defaultPrompt": "Use Material Design 3 to design a responsive Jetpack Compose screen."
+  }
+}

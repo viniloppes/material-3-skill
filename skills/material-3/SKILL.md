@@ -6,8 +6,6 @@ description: >
   (@material/web, maintenance mode). Covers tokens, 30+ components, layout, theming,
   M3 Expressive (platform matrix), and accessibility. Use when: "material design", "MD3",
   "material you", "Jetpack Compose", "MaterialTheme", "material component", "md3 button".
-user-invokable: true
-argument-hint: "[component|theme|layout|scaffold|audit] [description or URL]"
 ---
 
 # Material Design 3
@@ -563,7 +561,7 @@ The Expressive update adds visual richness while maintaining usability. **Availa
 
 ## MD3 Compliance Audit
 
-When invoked with `audit` as the argument (e.g., `/material-3 audit`), or when asked to audit/review MD3 compliance, analyze the target app or page and produce a compliance report.
+When invoked with `audit` as the argument (e.g., `$material-3 audit` in Codex or `/material-3 audit` in Claude Code), or when asked to audit/review MD3 compliance, analyze the target app or page and produce a compliance report.
 
 ### Audit Procedure
 
