@@ -122,17 +122,17 @@ The skill is a **best-effort distillation** and may drift as Google updates the 
 npx --yes skills add hamen/material-3-skill --skill material-3 -y
 ```
 
-This is the preferred path for Codex, Claude Code, Cursor, and multi-agent setups because the repo follows the direct `skills/<name>/SKILL.md` layout.
+This installs the upstream skill for Claude Code, Cursor, and other skill-aware assistants. To install the `codex-module` branch in Codex, use the steps below.
 
 ### Codex plugin install
 
-Add the `codex-module` branch as a Codex plugin marketplace:
+Add the `codex-module` branch as a Codex plugin marketplace from your shell:
 
 ```bash
 codex plugin marketplace add viniloppes/material-3-skill --ref codex-module
 ```
 
-Restart the ChatGPT desktop app, open the Plugins Directory, select **Material Design 3 Skill**, and install **material-3**. The repository's `.agents/plugins/marketplace.json` points to the root Codex plugin, whose `.codex-plugin/plugin.json` loads `skills/material-3`.
+Adding the marketplace only registers the catalog. Start Codex CLI with `codex`, run `/plugins`, find **Material Design 3 Skill**, and install **material-3**. Start a new chat, then run `/skills` to confirm that `material-3` appears. The repository's `.agents/plugins/marketplace.json` points to the root Codex plugin, whose `.codex-plugin/plugin.json` loads `skills/material-3`.
 
 In Codex, invoke the installed skill with `$material-3` followed by your request.
 
@@ -156,21 +156,26 @@ claude plugin install material-3@material-3-skill
 
 The root `.claude-plugin/marketplace.json` points at `skills/material-3`, where Claude Code reads `.claude-plugin/plugin.json` and registers `SKILL.md`.
 
-### Codex or manual skill install
+### Manual Codex skill install
 
-Clone the repository, then link or copy `skills/material-3` into the skills directory your assistant reads:
+If you only need the skill in Codex CLI, clone this branch and copy it to your user skills directory. On Windows PowerShell:
+
+```powershell
+git clone --branch codex-module https://github.com/viniloppes/material-3-skill.git
+New-Item -ItemType Directory -Force "$HOME\.agents\skills" | Out-Null
+Copy-Item -Recurse "material-3-skill\skills\material-3" "$HOME\.agents\skills\material-3"
+```
+
+On macOS or Linux, you can link the skill directory:
 
 ```bash
-git clone https://github.com/hamen/material-3-skill.git
+git clone --branch codex-module https://github.com/viniloppes/material-3-skill.git
 cd material-3-skill
-
-# Codex
-mkdir -p ~/.codex/skills
-ln -s "$(pwd)/skills/material-3" ~/.codex/skills/material-3
-
-# Other SKILL.md loaders
-ln -s "$(pwd)/skills/material-3" /path/to/your/skills/material-3
+mkdir -p ~/.agents/skills
+ln -s "$(pwd)/skills/material-3" ~/.agents/skills/material-3
 ```
+
+Restart Codex if `/skills` does not show `material-3` immediately.
 
 ## Usage
 
